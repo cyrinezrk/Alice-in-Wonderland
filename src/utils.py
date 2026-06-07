@@ -1,12 +1,15 @@
 import re
-import nltk
+import spacy
 
+#load spacy nlp
+nlp = spacy.load("xx_ent_wiki_sm")
 
+#locate end of header and start of footer 
 header_pattern = r"^\*{3} START OF THE PROJECT GUTENBERG EBOOK .+ \*{3}$"
 footer_pattern = r"^\*{3} END OF THE PROJECT GUTENBERG EBOOK .+ \*{3}$"
 
 
-def clean(text: str):
+def clean_book(text: str):
     text = text.replace('\r\n', '\n')
     # Find header and footer index using regex patterns 
     header_index = re.search(header_pattern, text, re.MULTILINE).span()[1]
@@ -28,6 +31,9 @@ def clean(text: str):
 
 
 def tokenize(text: str):
+    #tokenize
+    return nlp(text)
+
+def clean_tokens(tokens):
+    filtered_tokens = [token.text for token in tokens if not token.is_stop and not token.is_punct]
     return
-
-
