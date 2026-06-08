@@ -7,7 +7,7 @@ def create_client():
     return Client(base_url=BASE_URL)
 
 
-def get_book_text(book_id: str):
+def get_book_text(book_id: str) -> str:
     with create_client() as client:
         response = client.get(f"cache/epub/{book_id}/pg{book_id}.txt")
     if response.status_code == 404:

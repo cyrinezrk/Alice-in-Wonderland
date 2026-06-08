@@ -12,5 +12,7 @@ arguments = parse.parse_args()
 
 book_id = arguments.lexdiv
 
-print(tokenize(clean_book(get_book_text(book_id))))
+results = tokenize(clean_book(get_book_text(book_id)))
+
+print(results, type(results))
 

@@ -8,5 +8,6 @@ dependencies = [
     "httpx>=0.28.1",
     "nltk>=3.9.4",
     "pip>=26.1.2",
+    "pydantic>=2.13.4",
     "spacy>=3.8.14",
 ]

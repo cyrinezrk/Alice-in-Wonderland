@@ -9,7 +9,7 @@ header_pattern = r"^\*{3} START OF THE PROJECT GUTENBERG EBOOK .+ \*{3}$"
 footer_pattern = r"^\*{3} END OF THE PROJECT GUTENBERG EBOOK .+ \*{3}$"
 
 
-def clean_book(text: str):
+def clean_book(text: str) -> str:
     text = text.replace('\r\n', '\n')
     # Find header and footer index using regex patterns 
     header_index = re.search(header_pattern, text, re.MULTILINE).span()[1]
@@ -30,10 +30,10 @@ def clean_book(text: str):
     return text
 
 
-def tokenize(text: str):
+def tokenize(text: str) -> spacy.tokens:
     #tokenize
-    return nlp(text)
+    doc = nlp(text)
+    tokens = [token for token in doc if not token.is_stop and not token.is_punct and not token.is_space and token.is_alpha]
+    return tokens 
 
-def clean_tokens(tokens):
-    filtered_tokens = [token.text for token in tokens if not token.is_stop and not token.is_punct]
-    return
+
