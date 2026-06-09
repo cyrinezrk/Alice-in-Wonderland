@@ -2,7 +2,7 @@ import re
 import spacy
 
 #load spacy nlp
-nlp = spacy.load("xx_ent_wiki_sm")
+nlp = spacy.load("en_core_web_sm")
 
 #locate end of header and start of footer 
 header_pattern = r"^\*{3} START OF THE PROJECT GUTENBERG EBOOK .+ \*{3}$"

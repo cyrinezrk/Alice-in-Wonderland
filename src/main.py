@@ -1,6 +1,4 @@
 import argparse
-from src.utils import clean_book, tokenize
-from src.client import get_book_text
 from src.services.lexdiv import lexdiv
 from src.services.topics import topics
 

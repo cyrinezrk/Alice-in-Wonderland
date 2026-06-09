@@ -8,9 +8,10 @@ def topics(book_id: str) -> dict:
     text = get_book_text(book_id)
     text = clean_book(text)
     tokens = tokenize(text)
+    tokens_text = [token.text for token in tokens] # from token obj to list of str 
 
-    dictionary = corpora.Dictionary(tokens)
-    corpus = [dictionary.doc2bow(tokens)]
+    dictionary = corpora.Dictionary([tokens_text])
+    corpus = [dictionary.doc2bow(tokens_text)]
 
     lda = LdaModel(
         corpus=corpus,

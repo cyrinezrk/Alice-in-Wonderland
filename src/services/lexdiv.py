@@ -1,13 +1,6 @@
 from src.utils import tokenize, clean_book
 from src.client import get_book_text
 
-def _calculate_hap(tokens) -> int:
-    count = 0
-    for token in tokens:
-        if tokens.count(token) == 1:
-            count += 1
-    return count
-
 
 def lexdiv(book_id: str) -> dict:
     text = get_book_text(book_id)    
