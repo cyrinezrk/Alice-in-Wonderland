@@ -1,7 +1,6 @@
 from src.utils import tokenize, clean_book
 from src.client import get_book_text
 
-
 def _calculate_hap(tokens) -> int:
     count = 0
     for token in tokens:
