@@ -1,6 +1,7 @@
 import argparse
 from src.utils import clean_book, tokenize
 from src.client import get_book_text
+from src.services.lexdiv import lexdiv
 
 # Initialize parser
 parse = argparse.ArgumentParser()
@@ -12,7 +13,5 @@ arguments = parse.parse_args()
 
 book_id = arguments.lexdiv
 
-results = tokenize(clean_book(get_book_text(book_id)))
-
-print(results, type(results))
+print(lexdiv(book_id))
 

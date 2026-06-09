@@ -17,9 +17,11 @@ def lexdiv(book_id: str) -> dict:
     number_of_word_tokens = len(tokens)
     number_of_unique_word_tokens = len(set(tokens))
     measurements = {
-            "tok": number_of_words_tokens,
-            "typ": number_of_unique_words_tokens,
-            "hap": _calculate_hap(tokens),
+            "tok": number_of_word_tokens,
+            "typ": number_of_unique_word_tokens,
+            "ttr": number_of_unique_word_tokens / number_of_word_tokens,
+            "mwl": sum(len(t) for t in tokens) / number_of_word_tokens,
+            "mwf": number_of_word_tokens / number_of_unique_word_tokens
             }        
     return measurements
 
