@@ -22,7 +22,7 @@ def topics(book_id: str) -> dict:
 
     #asked pattern 
     topics = {}
-    for topic_id, topic_words in lda.print_topîcs():
+    for topic_id, topic_words in lda.print_topics():
         words = [word.split("*")[1].strip('"') for word in topic_words.split("+")]
         topics[topic_id + 1] = words
     return topics
