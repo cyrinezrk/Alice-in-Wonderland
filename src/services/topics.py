@@ -13,9 +13,16 @@ def topics(book_id: str) -> dict:
     dictionary = corpora.Dictionary([tokens_text])
     corpus = [dictionary.doc2bow(tokens_text)]
 
+    #algorithms that finds topics 
     lda = LdaModel(
         corpus=corpus,
         id2word=dictionary,
         num_topics=10
     )
-    return lda.print_topics()
+
+    #asked pattern 
+    topics = {}
+    for topic_id, topic_words in lda.print_topîcs():
+        words = [word.split("*")[1].strip('"') for word in topic_words.split("+")]
+        topics[topic_id + 1] = words
+    return topics
