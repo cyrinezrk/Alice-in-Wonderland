@@ -9,26 +9,25 @@ header_pattern = r"^\*{3} START OF THE PROJECT GUTENBERG EBOOK .+ \*{3}$"
 footer_pattern = r"^\*{3} END OF THE PROJECT GUTENBERG EBOOK .+ \*{3}$"
 
 
-def clean_book(text: str) -> str:
+def clean_book(text: str, lowercase: bool = True) -> str:
     text = text.replace('\r\n', '\n')
     # Find header and footer index using regex patterns 
     header_index = re.search(header_pattern, text, re.MULTILINE).span()[1]
     footer_index = re.search(footer_pattern, text, re.MULTILINE).span()[0]
-
     # Remove header and footer
     text = text[header_index + 1: footer_index - 1]
-
     # Remove leading and trailing whitespaces
     text = text.strip()
-
     # Merge consecutive whitespaces into a single one
     text = re.sub(r" +", " ", text)
-
-    # Transform the text to lowercase
-    text = text.lower()
-
+    # Transform the text to lowercase precize false when not needed 
+    if lowercase:
+        text = text.lower()
+    
     return text
 
+def parse(text: str) -> spacy.tokens.Doc:
+    return nlp(text)
 
 def tokenize(text: str) -> spacy.tokens:
     #tokenize
