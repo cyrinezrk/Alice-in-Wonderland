@@ -5,6 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "gensim>=4.4.0",
     "httpx>=0.28.1",
     "nltk>=3.9.4",
+    "pip>=26.1.2",
+    "pydantic>=2.13.4",
+    "spacy>=3.8.14",
 ]

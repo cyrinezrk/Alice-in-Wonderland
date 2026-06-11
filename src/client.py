@@ -4,10 +4,10 @@ BASE_URL = "https://www.gutenberg.org/"
 
 
 def create_client():
-    return Client(base_url=BASE_URL)
+    return Client(base_url=BASE_URL, timeout=60.0, headers={"User-Agent": "Mozilla/5.0"})
 
 
-def get_book_text(book_id: str):
+def get_book_text(book_id: str) -> str:
     with create_client() as client:
         response = client.get(f"cache/epub/{book_id}/pg{book_id}.txt")
     if response.status_code == 404:
