@@ -3,7 +3,7 @@ from src.services.lexdiv import lexdiv
 from src.services.topics import topics
 from src.services.entities import entities
 from src.services.summarize import summarize
-# Initialize parser
+# Initialize parser                         
 parse = argparse.ArgumentParser()
 
 # Add argumnets
