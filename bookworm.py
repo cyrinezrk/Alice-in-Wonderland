@@ -1,16 +1,3 @@
-#!/usr/bin/env python3
-"""
-BookWorm - NLP Book Card Engine
-===============================
-A lightweight tool that creates "book cards" from Project Gutenberg books.
-
-Usage:
-    python bookworm.py --lexdiv <ID>      # Lexical diversity metrics
-    python bookworm.py --topics <ID>      # Topic modeling
-    python bookworm.py --entities <ID>    # Named entity extraction
-    python bookworm.py --summarize <ID>   # Book summarization
-"""
-
 import argparse
 import json
 from src.services.lexdiv import lexdiv
