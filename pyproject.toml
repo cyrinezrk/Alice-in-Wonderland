@@ -11,4 +11,6 @@ dependencies = [
     "pip>=26.1.2",
     "pydantic>=2.13.4",
     "spacy>=3.8.14",
+    "summy>=0.1",
+    "sumy>=0.13.0",
 ]
